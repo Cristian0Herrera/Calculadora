@@ -103,7 +103,7 @@
         <h1>Calculadora de ISR</h1>
         <div class="form-group">
             <input type="text" id="nombre" placeholder="Nombre">
-            <input type="text" id="apellido" placeholder="Apellido">
+            <input type="text" id="apellido" placeholder="Cargo">
             <input type="number" id="sueldoBase" placeholder="Sueldo">
         </div>
         <table>
@@ -142,7 +142,6 @@
         </div>
         <div class="sueldo-neto-mensaje" id="mensajeSueldo"></div>
 
-        <h2>Cristian usss108822</h2>
 
     </div>
 
@@ -169,7 +168,7 @@
             }
             const retenciones = isr + isss + afp;
             const sueldoNeto = rentaI - isr;
-            const isssPatronal = sueldo * 0.075;
+            const isssPatronal = sueldo >= 1000 ? 75 : sueldo * 0.075;
             const afpPatronal = sueldo * 0.0875;
             const totalIsss = isss + isssPatronal;
             const totalAfp = afp + afpPatronal;
@@ -184,7 +183,7 @@
             document.getElementById('resultado-total-isss').textContent = `$${totalIsss.toFixed(2)}`;
             document.getElementById('resultado-total-afp').textContent = `$${totalAfp.toFixed(2)}`;
 
-            document.getElementById('mensajeSueldo').textContent = `El sueldo líquido de ${nombre} ${apellido} es: $${sueldoNeto.toFixed(2)}`;
+            document.getElementById('mensajeSueldo').textContent = `El sueldo líquido de ${nombre} es: $${sueldoNeto.toFixed(2)}`;
         }
         function calcularNuevoSueldo() {
             document.querySelectorAll("input").forEach(input => input.value = "");
